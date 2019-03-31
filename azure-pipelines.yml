@@ -16,6 +16,16 @@ variables:
 
 steps:
 - script: |
-    dir "c:\Program Files (x86)"
+    dir "c:\Program Files (x86)\Microsoft Visual Studio"
     call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
     cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subcon.exe) /subsystem:console
+
+- task: GitHubRelease@0
+  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/release-v')
+  inputs:
+    gitHubConnection: MichaelUrman
+    repositoryName: $(Build.Repository.Name)
+    action: create
+    tagSource: manual
+    tag: $(Build.BuildNumber)
+    assets: $(Build.BinariesDirectory)/*.exe
