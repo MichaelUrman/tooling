@@ -14,4 +14,4 @@ variables:
   subconcpp: "$(subcon)/*.cpp"
 
 steps:
-- powershell: cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp)
+- script: cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp)
