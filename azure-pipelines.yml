@@ -10,12 +10,12 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 variables:
-  subcondir: "$(Build.SourcesDirectory)cmd/subcon"
-  subconcpp: "$(subcondir)/*.cpp"
-  subconexe: "$(Build.BinariesDirectory)/subcon.exe"
+  subcondir: "$(Build.SourcesDirectory)\cmd\subcon"
+  subconcpp: "$(subcondir)\*.cpp"
+  subconexe: "$(Build.BinariesDirectory)\subcon.exe"
 
 steps:
 - script: |
-    set
+    dir "c:\Program Files (x86)"
     call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
     cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subcon.exe) /subsystem:console
