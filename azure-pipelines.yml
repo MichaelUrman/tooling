@@ -10,9 +10,9 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 variables:
-  subcondir: "$(Build.SourcesDirectory)\cmd\subcon"
-  subconcpp: "$(subcondir)\*.cpp"
-  subconexe: "$(Build.BinariesDirectory)\subcon.exe"
+  subcondir: "$(Build.SourcesDirectory)\\cmd\\subcon"
+  subconcpp: "$(subcondir)\\*.cpp"
+  subconexe: "$(Build.BinariesDirectory)\\subcon.exe"
 
 steps:
 - script: |
