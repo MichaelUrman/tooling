@@ -16,5 +16,6 @@ variables:
 
 steps:
 - script: |
-    call "C:\Program Files (x86)\Microsoft Visual Studio 15.0\VC\vcvarsall.bat" x86_amd64
+    set
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
     cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subcon.exe) /subsystem:console
