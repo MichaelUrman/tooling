@@ -16,10 +16,10 @@ variables:
 
 steps:
 - script: |
-    dir "c:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise"
-    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-    echo cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subcon.exe) /subsystem:console
-    cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subcon.exe) /subsystem:console
+    dir "c:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\"
+    call "c:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\vcvarsall.bat" x86_amd64
+    echo cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subconexe) /subsystem:console
+    cl.exe /nologo /O1 /EHsc /MD /permissive- /W4 /DUNICODE /D_UNICODE /std:c++17 $(subconcpp) /link /out:$(subconexe) /subsystem:console
 
 - task: GitHubRelease@0
   #condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/release-v')
